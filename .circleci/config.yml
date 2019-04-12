@@ -45,6 +45,7 @@ jobs:
               conda env create -f environment.yml
               source activate mne
               python -c "import mne; mne.sys_info()"
+              conda list
               echo "source activate mne" >> $BASH_ENV;
 
         - save_cache:
