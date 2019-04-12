@@ -44,6 +44,7 @@ jobs:
               curl -O https://raw.githubusercontent.com/mne-tools/mne-python/master/environment.yml
               conda env create -f environment.yml
               source activate mne
+              python -c "import mne; mne.sys_info()"
               echo "source activate mne" >> $BASH_ENV;
 
         - save_cache:
