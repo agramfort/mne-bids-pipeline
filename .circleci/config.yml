@@ -44,10 +44,8 @@ jobs:
               curl -O https://raw.githubusercontent.com/mne-tools/mne-python/master/environment.yml
               sed -i '/pylsl/d' ./environment.yml
               conda env create -f environment.yml
-              conda init bash
-              conda activate mne
+              source activate mne
               python -c "import mne; mne.sys_info()"
-              conda list
 
         - save_cache:
             key: pip-cache
@@ -59,6 +57,7 @@ jobs:
             name: Check installation
             command: |
                conda activate mne
+               pip install mne
                which python
                python -c "import mne; mne.sys_info()"
 
