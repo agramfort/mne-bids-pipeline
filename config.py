@@ -52,8 +52,9 @@ study_name = 'Localizer'
 # participant names. Even if you plan on analyzing a single participant, it
 # needs to be set up as a list with a single element, as in the 'example'
 
-subjects_list = ['SB01', 'SB02', 'SB03', 'SB04', 'SB05', 'SB06', 'SB07',
-                 'SB08', 'SB09', 'SB10', 'SB11', 'SB12']
+subjects_list = ['SB01']
+# subjects_list = ['SB01', 'SB02', 'SB03', 'SB04', 'SB05', 'SB06', 'SB07',
+#                  'SB08', 'SB09', 'SB10', 'SB11', 'SB12']
 
 # Now you can specify subjects to exclude from the group study:
 # [Good Practice / Advice] keep track of the criteria leading you to exclude
