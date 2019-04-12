@@ -56,7 +56,7 @@ jobs:
         - run:
             name: Check installation
             command: |
-               conda activate mne
+               source activate mne
                pip install mne
                which python
                python -c "import mne; mne.sys_info()"
