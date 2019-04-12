@@ -70,7 +70,8 @@ jobs:
         - run:
             name: make html
             command: |
-              make preprocess
+               source activate mne
+               make preprocess
 
         # Save the outputs
         - store_artifacts:
