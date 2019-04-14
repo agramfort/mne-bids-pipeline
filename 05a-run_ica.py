@@ -18,9 +18,6 @@ from mne.parallel import parallel_func
 
 import config
 
-# XXX do we need this?
-decim = 11  # do not touch this value unless you know what you are doing
-
 
 def run_ica(subject, tsss=config.mf_st_duration):
     print("Processing subject: %s" % subject)
@@ -44,10 +41,9 @@ def run_ica(subject, tsss=config.mf_st_duration):
         events_list.append(events)
 
         # mark bads from any run
-        if run:
-            bads = set(sum(config.bads[subject].values(), []))
-        else:
-            bads = config.bads[subject]
+        bads = config.bads[subject]
+        if isinstance(bads, dict):
+            bads = set(sum(bads.values(), []))
 
         raw.info['bads'] = bads
         print("added bads: ", raw.info['bads'])
@@ -60,13 +56,23 @@ def run_ica(subject, tsss=config.mf_st_duration):
         raw.set_eeg_reference(projection=True)
     del raw_list
 
+    # don't reject based on EOG to keep blink artifacts
+    # in the ICA computation.
+    reject_ica = config.reject
+    if reject_ica and 'eog' in reject_ica:
+        reject_ica = dict(reject_ica)
+        del reject_ica['eog']
+
     # produce high-pass filtered version of the data for ICA
-    epochs_for_ica = mne.Epochs(raw.copy().filter(l_freq=1., h_freq=None),
+    raw_ica = raw.copy().filter(l_freq=1., h_freq=None)
+
+    print("  Running ICA...")
+    epochs_for_ica = mne.Epochs(raw_ica,
                                 events, config.event_id, config.tmin,
                                 config.tmax, proj=True,
                                 baseline=config.baseline,
                                 preload=True, decim=config.decim,
-                                reject=config.reject)
+                                reject=reject_ica)
 
     # run ICA on MEG and EEG
     picks_meg = mne.pick_types(epochs_for_ica.info, meg=True, eeg=False,
@@ -97,7 +103,7 @@ def run_ica(subject, tsss=config.mf_st_duration):
 
         picks = all_picks[ch_type]
 
-        ica.fit(epochs_for_ica, picks=picks, decim=decim)
+        ica.fit(epochs_for_ica, picks=picks, decim=config.ica_decim)
 
         print('  Fit %d components (explaining at least %0.1f%% of the'
               ' variance)' % (ica.n_components_, 100 * n_components[ch_type]))
