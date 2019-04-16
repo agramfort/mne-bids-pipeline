@@ -45,15 +45,6 @@ def run_epochs(subject):
         events = mne.read_events(eve_fname)
         events_list.append(events)
 
-        # XXX mark bads from any run – is it a problem for ICA
-        # if we just exclude the bads shared by all runs ?
-        if run:
-            bads = set(chain(*config.bads[subject].values()))
-        else:
-            bads = config.bads[subject]
-
-        raw.info['bads'] = bads
-        print("added bads: ", raw.info['bads'])
 
         raw_list.append(raw)
 

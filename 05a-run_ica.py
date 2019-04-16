@@ -40,13 +40,6 @@ def run_ica(subject, tsss=config.mf_st_duration):
         events = mne.read_events(eve_fname)
         events_list.append(events)
 
-        # mark bads from any run
-        bads = config.bads[subject]
-        if isinstance(bads, dict):
-            bads = set(sum(bads.values(), []))
-
-        raw.info['bads'] = bads
-        print("added bads: ", raw.info['bads'])
 
         raw_list.append(raw)
 
