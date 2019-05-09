@@ -497,7 +497,7 @@ use_ssp = False
 # ``use_ica`` : bool
 #    If True ICA should be used or not.
 
-use_ica = False
+use_ica = True
 
 # ``ica_decim`` : int
 #    The decimation parameter to compute ICA. If 5 it means
