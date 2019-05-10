@@ -11,7 +11,7 @@ based on scripts originally developed for this publication:
 
 # 1 Make sure MNE-python is installed
 
-First, you need to make sure you have mne-python installed and working on your system. See [installation instructions](http://martinos.org/mne/stable/install_mne_python.html). Once is done, you should be able to run this in a terminal:
+First, you need to make sure you have mne-python installed and working on your system. See [installation instructions](http://martinos.org/mne/stable/install_mne_python.html). Once it is done, you should be able to run this in a terminal:
 
 	$ python -c "import mne; mne.sys_info()"
 
@@ -26,12 +26,11 @@ For source analysis you'll also need freesurfer, follow the instructions on [the
 
 # 2 Set your data to a proper place
 
-In our example, we will use .fif raw data you can find here:
-https://osf.io/m9nwz/
+For a complete example, we can use the .fif raw data you can find [here](https://osf.io/m9nwz/)
 
-The name of the study will be "Localizer".
+The name of this study is "Localizer".
 
-Let's create a folder called "ExampleData" wherever you want on your computer.
+You can create a folder called "ExampleData" wherever you want on your computer.
 
 In the ExampleData folder, you need to create three subfolders:  "MEG", "system_calibration_files" and "subjects" as follow:
 
@@ -42,15 +41,15 @@ The "MEG" folder will contain a folder for each participant
 The "system_calibration_files" folder will contain the calibration files (download them from OSF)
 The "subjects" folder will contain participant MRI files.
 
-Here is an example of what the MEG folder should contain:
+Here is an example of what the MEG folder should contain if you have 3 subjects called SB01, SB02 and SB03:
 
 ![xx](https://image.noelshack.com/fichiers/2019/15/4/1554998137-path1.png)
 
-Then you put the raw data for each subject in their own folder. The raw data file name should respect this format:
+Then you can put the raw data for each subject in their own folder. You can name the raw data files as this:
 subjectID_StudyName_raw.fif
 
 or, if your data has multiple runs:
-subjectID_StudyNamerun01_raw.fif
+subjectID_StudyName_run01_raw.fif
 
 
 ![xx](https://image.noelshack.com/fichiers/2019/15/4/1554998137-path2.png)
