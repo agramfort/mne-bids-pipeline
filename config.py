@@ -87,20 +87,13 @@ exclude_subjects = []
 #
 # Good Practice / Advice
 # ~~~~~~~~~~~~~~~~~~~~~~
-<<<<<<< HEAD
 # The naming should be consistent across participants. List the number of runs
 # you ideally expect to have per participant. The scripts will issue a warning
-=======
-# The naming should be consistent across participants. 
-# List the number of runs you ideally expect to have per participant. 
-# The scripts will issue a warning
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 # if there are less runs than is expected. If there is only just one file,
 # leave empty!
 
 runs = ['']  # ['run01', 'run02']
 
-<<<<<<< HEAD
 # ``ch_types``  : list of st
 #    The list of channel types to consider.
 #
@@ -111,10 +104,6 @@ runs = ['']  # ['run01', 'run02']
 # >>> ch_types = ['meg']  # to use only MEG
 # or
 # >>> ch_types = ['grad']  # to use only gradiometer MEG channels
-=======
-# ``eeg``  : bool
-#    If true use the EEG channels
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 ch_types = ['meg']
 
@@ -129,16 +118,11 @@ base_fname = '{subject}_' + study_name + '{extension}.fif'
 ###############################################################################
 # BAD CHANNELS
 # ------------
-<<<<<<< HEAD
 # needed for 01-import_and_filter.py
-=======
-# for 01-import_and_filter.py
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 # ``bads`` : dict of list | dict of dict
 #    Bad channels are noisy sensors that *must* to be listed
 #    *before* maxfilter is applied. You can use the dict of list structure
-<<<<<<< HEAD
 #    of you have bad channels that are the same for all runs.
 #    Use the dict(dict) if you have many runs or if noisy sensors are changing
 #    across runs.
@@ -160,59 +144,17 @@ base_fname = '{subject}_' + study_name + '{extension}.fif'
 # track of the noisy sensors. Here, put the number of runs you ideally expect
 # to have per participant. Use the simple dict if you don't have runs or if
 # the same sensors are noisy across all runs.
-=======
-#    if you have bad channels that are the same for all runs.
-#
-# Example
-# ~~~~~~~
-#
-# Define dict(list): 
-# >>> bads = defaultdict(list)
-#
-#   and to populate this, do:
-#
-# >>> bads['SB01'] = ['MEG1723', 'MEG1722']
-#
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 bads = defaultdict(list)
 bads['SB01'] = ['MEG1723', 'MEG1722']
 bads['SB04'] = ['MEG0543', 'MEG2333']
 bads['SB06'] = ['MEG2632', 'MEG2033']
 
-<<<<<<< HEAD
-=======
-#
-#    Use the dict(dict) if you have many runs or if noisy sensors are changing
-#    across runs.
-#
-# Example
-# ~~~~~~~
-#
-# Define dict(dict):
-# 
-# >>> def default_bads():
-# >>>     return dict(run01=[], run02=[])
-# >>>
-# >>> bads = defaultdict(default_bads)
-#
-#   and to populate this, do:
-#
-# >>> bads['subject01'] = dict(run01=[12], run02=[7])
-#
-# Good Practice / Advice
-# ~~~~~~~~~~~~~~~~~~~~~~
-# During the acquisition of your MEG / EEG data, systematically list and keep
-# track of the noisy sensors. Here, put the number of runs you ideally expect
-# to have per participant. Use the simple dict if you don't have runs or if
-# the same sensors are noisy across all runs.
-
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 ###############################################################################
 # DEFINE ADDITIONAL CHANNELS
 # --------------------------
-# for 01-import_and_filter.py
+# needed for 01-import_and_filter.py
 
 # ``rename_channels`` : dict rename channels
 #    Here you name or replace extra channels that were recorded, for instance
@@ -220,21 +162,14 @@ bads['SB06'] = ['MEG2632', 'MEG2033']
 #
 # Example
 # ~~~~~~~
-<<<<<<< HEAD
 # Here rename EEG061 to EOG061, EEG062 to EOG062, EEG063 to ECG063:
-=======
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 # >>> rename_channels = {'EEG061': 'EOG061', 'EEG062': 'EOG062',
 #                        'EEG063': 'ECG063'}
 
 rename_channels = None
 
 # ``set_channel_types``: dict
-<<<<<<< HEAD
 #   Here you define types of channels to pick later.
-=======
-#   Here you defines types of channels to pick later.
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 #
 # Example
 # ~~~~~~~
@@ -246,7 +181,7 @@ set_channel_types = None
 ###############################################################################
 # FREQUENCY FILTERING
 # -------------------
-# for 01-import_and_filter.py
+# done in 01-import_and_filter.py
 
 # Good Practice / Advice
 # ~~~~~~~~~~~~~~~~~~~~~~
@@ -271,22 +206,14 @@ set_channel_types = None
 # of tips! :)
 
 
-<<<<<<< HEAD
 # ``l_freq`` : float
 #   The low-frequency cut-off in the highpass filtering step.
-=======
-# ``l_freq`` : the low-frequency cut-off in the highpass filtering step.
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 #   Keep it None if no highpass filtering should be applied.
 
 l_freq = 1.
 
-<<<<<<< HEAD
 # ``h_freq`` : float
 #   The high-frequency cut-off in the lowpass filtering step.
-=======
-# ``h_freq`` : the high-frequency cut-off in the lowpass filtering step.
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 #   Keep it None if no lowpass filtering should be applied.
 
 h_freq = 40.
@@ -294,7 +221,6 @@ h_freq = 40.
 ###############################################################################
 # MAXFILTER PARAMETERS
 # --------------------
-<<<<<<< HEAD
 #
 # ``use_maxwell_filter`` : bool
 #   Use or not maxwell filter to preprocess the data.
@@ -368,49 +294,18 @@ mf_head_origin = 'auto'
 # about the environmental noise. For practical purposes, place them in your
 # study folder.
 #
-=======
-# for 02_apply_maxfilter.py
-
-# Download the ``cross talk`` and ``calibration`` files. 
-# (They are on OSF for the example data.)
-# Warning: these are site and machine specific files that provide information 
-# about the environmental noise.
-# For practical purposes, place them in your study folder.
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 # At NeuroSpin: ct_sparse and sss_call are on the meg_tmp server
 
-# ``cal_files_path``  : str
-#   path to the folder where the calibration files are
-#   if you placed it right, you don't have to edit this
 cal_files_path = os.path.join(study_path, 'system_calibration_files')
-
-# ``mf_ctc_fname``  : str
-#    Path to the FIF file with cross-talk correction information. 
 mf_ctc_fname = os.path.join(cal_files_path, 'ct_sparse_nspn.fif')
-
-# ``mf_cal_fname``  : str
-#   Path to the '.dat' file with fine calibration coefficients. 
 mf_cal_fname = os.path.join(cal_files_path, 'sss_cal_nspn.dat')
 
-<<<<<<< HEAD
-=======
-
-# ``mf_reference_run``  : integer
-#   Which run to take as the reference for adjusting the head position of all
-#   runs.
-
-mf_reference_run = 0
-
-# Good Practice / Advice
-# ~~~~~~~~~~~~~~~~~~~~~~
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 # Despite all possible care to avoid movements in the MEG, the participant
 # will likely slowly drift down from the Dewar or slightly shift the head
 # around in the course of the recording session. Hence, to take this into
 # account, we are realigning all data to a single position. For this, you need
 # to define a reference run (typically the one in the middle of
 # the recording session).
-<<<<<<< HEAD
 #
 # ``mf_reference_run``  : int
 #   Which run to take as the reference for adjusting the head position of all
@@ -421,43 +316,11 @@ mf_reference_run = 0
 # >>> mf_reference_run = 0  # to use the first run
 
 mf_reference_run = 0
-=======
-
-
-# ``mf_head_origin``  : str or array with 3 inputs
-#   defines the origin for the head position 
-#   if 'auto', position is fitted from the digitized points
-
-mf_head_origin = 'auto'
-
-
-# ``mf_st_duration `` : if None, no temporal-spatial filtering is applied
-# during MaxFilter, otherwise, put a float that speficifies the buffer
-# duration in seconds.
-# ``mf_st_duration `` : None or float
-#   Elekta default = 10s, meaning it acts like a 0.1 Hz highpass filter
-
-mf_st_duration = None
-
-# Good Practice / Advice
-# ~~~~~~~~~~~~~~~~~~~~~~
-# There are two kinds of maxfiltering: sss and tsss
-# [sss = signal space separation ; tsss = temporal signal space separation]
-# (Taulu et al, 2004): http://cds.cern.ch/record/709081/files/0401166.pdf
-# If you are interested in low frequency activity (<0.1Hz), avoid using tsss
-# and set mf_st_duration = None
-# If you are interested in low frequency above 0.1 Hz, you can use the
-# default mf_st_duration = 10 s
-# Elekta default = 10s, meaning it acts like a 0.1 Hz highpass filter
-
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 ###############################################################################
 # RESAMPLING
 # ----------
-# for 01-import_and_filter.py
 #
-<<<<<<< HEAD
 # Good Practice / Advice
 # ~~~~~~~~~~~~~~~~~~~~~~
 # If you have acquired data with a very high sampling frequency (e.g. 2 kHz)
@@ -466,8 +329,6 @@ mf_st_duration = None
 # If you are interested in typical analysis (up to 120 Hz) you can typically
 # resample your data down to 500 Hz without preventing reliable time-frequency
 # exploration of your data
-=======
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 #
 # ``resample_sfreq``  : float
 #   Specifies at which sampling frequency the data should be resampled.
@@ -481,7 +342,6 @@ mf_st_duration = None
 
 resample_sfreq = 500.  # None
 
-<<<<<<< HEAD
 # ``decim`` : int
 #   Says how much to decimate data at the epochs level.
 #   It is typically an alternative to the `resample_sfreq` parameter that
@@ -497,66 +357,19 @@ resample_sfreq = 500.  # None
 # >>> decim = 1  # no decimation
 # or
 # >>> decim = 4  # decimate by 4 ie devide sampling frequency by 4
-=======
-# ``decim`` : integer that says how much to decimate data at the epochs level.
-# It is typically an alternative to the `resample_sfreq` parameter that
-# can be used for resampling raw data. 1 means no decimation.
-#   Decimation is applied in 04-make_epochs.py
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 decim = 1
-
-
-# Good Practice / Advice
-# ~~~~~~~~~~~~~~~~~~~~~~
-# If you have acquired data with a very high sampling frequency (e.g. 2 kHz)
-# you will likely want to downsample to reduce the size of the files you
-# are working with (pragmatics)
-# Make sure to resample to a frequency that is more than two times 
-# the higher cut off of the frequency band you used for the low-pass filter
-# (i.e. the Nyquist freuquency)
-# If you are interested in typical analysis (up to 120 Hz) you can typically
-# resample your data down to 500 Hz without preventing reliable time-frequency
-# exploration of your data
-
 
 ###############################################################################
 # AUTOMATIC REJECTION OF ARTIFACTS
 # --------------------------------
-# for 04-make_epochs.py
-# 
-
-#  ``reject`` : dict | None
-#    The rejection limits to make some epochs as bads.
-#    This allows to remove strong transient artifacts.
-#    If you want to reject and retrieve blinks later, e.g. with ICA,
-#    don't specify a value for the eog channel (see examples below).
-#    Make sure to include values for eeg if you have EEG data
-
-reject = {'grad': 4000e-13, 'mag': 4e-12}
-
-# Note
-# ~~~~
-# These numbers tend to vary between subjects.. You might want to consider
-# using the autoreject method by Jas et al. 2018.
-# See https://autoreject.github.io
 #
-<<<<<<< HEAD
-=======
-# Examples
-# ~~~~~~~~
-# >>> reject = {'grad': 4000e-13, 'mag': 4e-12, 'eog': 150e-6}
-# >>> reject = {'grad': 4000e-13, 'mag': 4e-12, 'eeg': 200e-6}
-# >>> reject = None
-
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 # Good Practice / Advice
 # ~~~~~~~~~~~~~~~~~~~~~~
 # Have a look at your raw data and train yourself to detect a blink, a heart
 # beat and an eye movement.
 # You can do a quick average of blink data and check what the amplitude looks
 # like.
-<<<<<<< HEAD
 #
 #  ``reject`` : dict | None
 #    The rejection limits to make some epochs as bads.
@@ -578,36 +391,26 @@ reject = {'grad': 4000e-13, 'mag': 4e-12}
 # >>> reject = None
 
 reject = {'grad': 4000e-13, 'mag': 4e-12}
-=======
-
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 ###############################################################################
 # EPOCHING
 # --------
-# for 04-make_epochs.py
 #
 # ``tmin``: float
 #    A float in seconds that gives the start time before event of an epoch.
-<<<<<<< HEAD
 #
 # Example
 # ~~~~~~~
 # >>> tmin = -0.2  # take 200ms before event onset.
-=======
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 tmin = -0.6
 
 # ``tmax``: float
 #    A float in seconds that gives the end time before event of an epoch.
-<<<<<<< HEAD
 #
 # Example
 # ~~~~~~~
 # >>> tmax = 0.5  # take 500ms after event onset.
-=======
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 tmax = 1.5
 
@@ -615,73 +418,47 @@ tmax = 1.5
 #    If float it specifies the offset for the trigger and the stimulus
 #    (in seconds). You need to measure this value for your specific
 #    experiment/setup.
-<<<<<<< HEAD
 #
 # Example
 # ~~~~~~~
 # >>> trigger_time_shift = 0  # don't apply any offset
-=======
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 trigger_time_shift = -0.0416
 
 # ``baseline`` : tuple
 #    It specifies how to baseline the epochs; if None, no baseline is applied.
-<<<<<<< HEAD
 #
 # Example
 # ~~~~~~~
 # >>> baseline = (None, 0)  # baseline between tmin and 0
-=======
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
-baseline = (-.6, -.5)  # (None, 0.)
+baseline = (-.6, -.1)  # (None, 0.)
 
 # ``stim_channel`` : str
 #    The name of the stimulus channel, which contains the events.
-<<<<<<< HEAD
 #
 # Example
 # ~~~~~~~
 # >>> stim_channel = 'STI 014'  # or 'STI101'
-=======
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 stim_channel = 'STI101'
 
 # ``min_event_duration`` : float
-<<<<<<< HEAD
 #    The minimal duration of the events you want to extract (in seconds).
 #
 # Example
 # ~~~~~~~
 # >>> min_event_duration = 0.002  # 2 miliseconds
-=======
-#     The minimal duration of the events you want to extract (in seconds).
-#     Chose a value that is larger than the expected trigger duration  
-
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 min_event_duration = 0.002
 
 #  `event_id`` : dict
-<<<<<<< HEAD
 #    Dictionary that maps events (trigger/marker values)
 #    to conditions.
 #
 # Example
 # ~~~~~~~
 # >>> event_id = {'auditory/left': 1, 'auditory/right': 2}`
-=======
-#     Dictionary that maps events (trigger/marker values)
-#     to conditions.
-#     Use the dash to divise sub-conditions, as in the example above.
-#     This allows to analyse all 'Auditory' events regardless of left/right. 
-#
-# Example
-# ~~~~~~~
-# >>> event_id = {'Auditory/Left': 1, 'Auditory/Right': 2}`
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 # or
 # >>> event_id = {'Onset': 4} with conditions = ['Onset']
 
@@ -700,39 +477,15 @@ event_id = {'incoherent/1': 33, 'incoherent/2': 35,
 
 conditions = ['incoherent', 'coherent']
 
-
-# Good Practice / Advice
-# ~~~~~~~~~~~~~~~~~~~~~~
-# Carefully think about which event/ trigger you want to time-lock to.
-# choose a time window that includes the time range needed to test your hypotheses.
-# If you plan to apply a time-frequency transformation, chose your window larger
-# than what you want to look at, to avoid edge artifacts in the time window of 
-# interest.
-
-# Note on the example data
-# ~~~~~~~~~~~~~~~~~~~~~~~~
-# In the example data, we time-lock to the onset of a coherent movement.
-# The actual stimulus onset is 0.5 s before that. 
-# Therefore, we take a pre-stimulus baseline= (-.6, -.5). 
-# Note that in the NeuroSpin hard ware we have very short ghost triggers,
-# lasting ~1 ms. Setting min_event_duration larger than that allows to 
-# get rid of them. 
-
-
 ###############################################################################
 # ARTIFACT REMOVAL
 # ----------------
-<<<<<<< HEAD
-=======
-# 05a-run_ICA.py, 06a-apply_ICA.py // 05b-run_SSP.py, 06b-apply_SSP.py
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 #
 # You can choose between ICA and SSP to remove eye and heart artifacts.
 # SSP: https://mne-tools.github.io/stable/auto_tutorials/plot_artifacts_correction_ssp.html?highlight=ssp # noqa
 # ICA: https://mne-tools.github.io/stable/auto_tutorials/plot_artifacts_correction_ica.html?highlight=ica # noqa
 # if you choose ICA, run scripts 5a and 6a
 # if you choose SSP, run scripts 5b and 6b
-<<<<<<< HEAD
 #
 # Currently you cannot use both.
 #
@@ -742,19 +495,6 @@ conditions = ['incoherent', 'coherent']
 use_ssp = False
 
 # ``use_ica`` : bool
-=======
-# if you running both, your cleaned epochs will be the ones cleaned with the
-# methods you run last (they overwrite each other)
-# Scripts 06a-apply_ICA.py or 06b-apply_SSP.py run an automated rejection
-# procedure to detect eye and heart artifacts as described in the examples 
-# above. 
-#
-#
-
-# ICA parameters
-# ~~~~~~~~~~~~~~
-# ``runica`` : bool
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 #    If True ICA should be used or not.
 
 use_ica = True
@@ -766,22 +506,6 @@ use_ica = True
 
 ica_decim = 11
 
-# ``ica_decim`` : int
-#    The decimation parameter to compute ICA. If 5 it means
-#    that 1 every 5 sample is used by ICA solver. The higher the faster
-#    it is to run but the less data you have to compute a good ICA.
-
-ica_decim = 11
-
-
-# ``default_reject_comps`` : dict
-#   A dictionary that contains ICA components to be rejected from either MEG
-#   or EEG data. Use this to add components manually, for instance if they were
-#   not found by the automatic rejection procedure, or represent other artifacts
-#   than eye / heart activity that you wish to remove. 
-
-#   For example you can use:
-#    rejcomps_man['subject01'] = dict(eeg=[12], meg=[7])
 
 # ``default_reject_comps`` : dict
 #    A dictionary that specifies the indices of the ICA components to reject
@@ -795,32 +519,12 @@ rejcomps_man = defaultdict(default_reject_comps)
 
 # ``ica_ctps_ecg_threshold``: float
 #    The threshold parameter passed to `find_bads_ecg` method.
-<<<<<<< HEAD
-=======
-#   If you find that artifact components are not rejected, set it lower. 
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 ica_ctps_ecg_threshold = 0.1
-
-# Good Practice / Advice
-# ~~~~~~~~~~~~~~~~~~~~~~
-# If you go for ICA, inspect the html report created in the subject's folder
-# after running 05a-run_ICA.py, to identify components you would like to be rejected.
-# 06a-apply_ICA.py runs an automated rejection
-# procedure to detect eye and heart artifacts as described in the examples 
-# above and also generates a html report. 
-
-# SSP parameters
-# ~~~~~~~~~~~~~~
-# XXX
-# define parameters for SSP
-# give minimal description
-
 
 ###############################################################################
 # DECODING
 # --------
-<<<<<<< HEAD
 #
 # ``decoding_conditions`` : list
 #    List of conditions to be classified.
@@ -830,19 +534,6 @@ ica_ctps_ecg_threshold = 0.1
 # >>> decoding_conditions = []  # don't do decoding
 # or
 # >>> decoding_conditions = [('auditory', 'visual'), ('left', 'right')]
-=======
-# 09-sliding_estimator.py
-#
-# XXX needs more documentation
-#
-# ``decoding_conditions`` : list
-#    List of conditions to be classified.
-#
-# Example
-# ~~~~~~~
-#
-# >>> decoding_conditions = [('Auditory', 'Visual'), ('Left', 'Right')]
->>>>>>> eeb62c83d6a8d02a1354e9ce2967ff4ec18c87fb
 
 decoding_conditions = [('incoherent', 'coherent')]
 
@@ -860,7 +551,6 @@ decoding_n_splits = 5
 ###############################################################################
 # TIME-FREQUENCY
 # --------------
-# 10-time_frequency_conditions.py
 #
 # ``time_frequency_conditions`` : list
 #    The conditions to compute time-frequency decomposition on.
@@ -930,7 +620,6 @@ smooth = 10
 
 base_fname_trans = '{subject}-trans.fif'
 
-#   XXX – do we really have to hard-code this?
 fsaverage_vertices = [np.arange(10242), np.arange(10242)]
 
 if not os.path.isdir(study_path):
