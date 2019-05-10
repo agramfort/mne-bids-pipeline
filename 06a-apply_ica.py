@@ -57,10 +57,11 @@ def apply_ica(subject):
                                eog=False, stim=False, exclude='bads')
     all_picks = {'meg': picks_meg, 'eeg': picks_eeg}
 
-    if config.eeg:
-        ch_types = ['meg', 'eeg']
-    else:
-        ch_types = ['meg']
+    ch_types = []
+    if 'eeg' in config.ch_types:
+        ch_types.append('eeg')
+    if set(config.ch_types).intersection(('meg', 'grad', 'mag')):
+        ch_types.append('meg')
 
     for ch_type in ch_types:
         print(ch_type)
