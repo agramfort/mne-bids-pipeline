@@ -134,3 +134,5 @@ def run_ica(subject, tsss=config.mf_st_duration):
 if config.use_ica:
     parallel, run_func, _ = parallel_func(run_ica, n_jobs=config.N_JOBS)
     parallel(run_func(subject) for subject in config.subjects_list)
+else:
+    print("ICA is not used. Set config.use_ica=True to use it.")
