@@ -432,7 +432,9 @@ trigger_time_shift = -0.0416
 # ~~~~~~~
 # >>> baseline = (None, 0)  # baseline between tmin and 0
 
-baseline = (-.6, -.1)  # (None, 0.)
+# There is an event 500ms prior to the time-locking event, so we want
+# to take a baseline before that
+baseline = (-.6, -.5)  # (None, 0.)
 
 # ``stim_channel`` : str
 #    The name of the stimulus channel, which contains the events.
