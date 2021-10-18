@@ -1468,6 +1468,11 @@ covariance can ONLY be estimated from the pre-stimulus period.
     ```python
     noise_cov = 'emptyroom'
     ```
+
+    Use an ad-hoc covariance:
+    ```python
+    noise_cov = 'ad-hoc'
+    ```
 """
 
 source_info_path_update: Optional[Dict[str, str]] = dict(suffix='ave')

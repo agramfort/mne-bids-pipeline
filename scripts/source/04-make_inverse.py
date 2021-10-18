@@ -42,9 +42,12 @@ def run_inverse(*, cfg, subject, session=None):
     fname_cov = bids_path.copy().update(suffix='cov')
     fname_inv = bids_path.copy().update(suffix='inv')
 
-    cov = mne.read_cov(fname_cov)
-    forward = mne.read_forward_solution(fname_fwd)
     info = mne.io.read_info(fname_info)
+    if cfg.noise_cov == "ad-hoc":
+        cov = mne.make_ad_hoc_cov(info)
+    else:
+        cov = mne.read_cov(fname_cov)
+    forward = mne.read_forward_solution(fname_fwd)
     inverse_operator = make_inverse_operator(info, forward, cov, loose=0.2,
                                              depth=0.8, rank='info')
     write_inverse_operator(fname_inv, inverse_operator)
